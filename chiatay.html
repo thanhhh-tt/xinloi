@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời chia tay buồn</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            overflow: hidden;
+            text-align: center;
+        }
+        .content {
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        .line {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .heart {
+            display: inline-block;
+            position: relative;
+            width: 100px;
+            height: 90px;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 150px;
+            border-radius: 50px 50px 0 0;
+            background: red;
+        }
+        .heart::before {
+            left: 100px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(0.95); }
+        }
+        .pulse {
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="line">Thời gian bên nhau đã hết...</h1>
+        <p class="line">Cậu à, tớ có điều muốn nói với cậu...</p>
+        <p class="line">Trước khi gặp cậu, tớ có nhiều thời gian rảnh rỗi lắm...</p>
+        <p class="line">Nhưng từ sau khi gặp cậu, những khoảng thời gian đó không còn nữa...</p>
+        <p class="line">Nó bị lấp đầy bởi nỗi nhớ, tương tư, và những nghĩ suy về cậu...</p>
+        <p class="line">Có lẽ tớ thích cậu thật rồi...</p>
+        <p class="line">...</p>
+        <p class="line">Tớ không được đẹp trai, nhà tớ cũng không giàu, tớ cũng không học giỏi...</p>
+        <p class="line">Tớ chỉ là một thằng con trai mê Game online, học dốt, bất tài...</p>
+        <p class="line">Nhiều lúc tớ thực sự muốn lấy hết can đảm tiến lại gần cậu và nói...</p>
+        <p class="line pulse">"TỚ THÍCH CẬU" 💔</p>
+        <p class="line">Nhưng tớ không làm được...</p>
+        <p class="line">Tớ không có điểm gì nổi bật để có thể ngỏ lời với cậu...</p>
+        <p class="line">Và cậu cũng không có lý do gì để có thể chấp nhận một người như tớ...</p>
+        <p class="line">Vì vậy... Thích cậu, tớ vẫn sẽ giữ trong lòng, chỉ mình tớ biết...</p>
+        <p class="line">Tớ sẽ chỉ luôn ngắm nhìn cậu từ phía sau...</p>
+        <p class="line">Yêu đơn phương, nhiều lúc cũng hạnh phúc lắm vì...</p>
+        <p class="line">Tớ sẽ không bao giờ bị cậu từ chối...</p>
+        <p class="line">Tớ chỉ cần mỗi ngày đến trường đều được nhìn thấy cậu cũng đủ làm cho tớ vui rồi...</p>
+        <p class="line">Và hiện tại hy vọng duy nhất của tớ chỉ là...</p>
+        <p class="line">một ngày nào đó cậu biết được rằng...</p>
+        <p class="line">đã từng có một thằng con trai thầm thương cậu rất nhiều...</p>
+        <div class="heart"></div>
+        <div class="heart pulse"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lines = document.querySelectorAll('.line');
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    if (index > 0) {
+                        lines[index - 1].style.opacity = '0';
+                    }
+                    line.style.opacity = '1';
+                }, index * 5000); // Thời gian ngắt quãng 5 giây giữa mỗi câu
+            });
+        });
+    </script>
+</body>
+</html>
